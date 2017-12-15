@@ -29,10 +29,12 @@ public class CatalogMaker {
 	public static void main(String[] args) {
 		CatalogMaker x = new CatalogMaker();
 		System.out.println(x.getCsvContent());
-		
 		Scanner in = new Scanner(System.in);
+		
 		System.out.println("Type a location.");
 		String location = in.nextLine();
+		System.out.println("Now enter the country.");
+		String country = in.nextLine();
 	}
 
 }
