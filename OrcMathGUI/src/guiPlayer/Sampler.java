@@ -119,7 +119,7 @@ public class Sampler extends GUIApplication {
 				}
 			}); 
 			viewObjects.add(cb);
-			viewObjects.add(new Places(location, country));
+			viewObjects.add(new First());
 			
 		}
 		
