@@ -9,12 +9,14 @@ import guiTeacher.components.Component;
 public class Places extends AnimatedComponent {
 private String location;
 private String country;
+private int timesVisited;
 
 //component
-	public Places(String location, String country) {
+	public Places(String location, String country, int timesVisited) {
 		super(40, 40, 100, 83);
 		this.location = location;
 		this.country = country;
+		this.timesVisited = timesVisited;
 		update();
 	}
 
@@ -26,13 +28,7 @@ private String country;
 	}
 	
 	public String toString() {
-		return location + "," + country;
+		return location + "," + country + "," + timesVisited;
 		
 	}
 }
-
-//addSequence("resources/trump_run.png", 150, 0, 0, 100, 90, 6);
-//Thread animation = new Thread(this);
-//animation.start();
-
-//ArrayList<Thing> list = new ArrayList<Thing>();

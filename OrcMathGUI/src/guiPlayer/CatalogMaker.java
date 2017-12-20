@@ -96,7 +96,7 @@ public class CatalogMaker {
 	}
 
 
-	private void addBook(Book b){
+	public void addBook(Book b){
 		catalog.add(b);
 	}
 
