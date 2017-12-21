@@ -1,0 +1,68 @@
+package festiveCard;
+
+import java.io.File;
+import java.util.List;
+
+import com.itextpdf.text.Font;
+
+import guiTeacher.components.Action;
+import guiTeacher.components.Button;
+import guiTeacher.components.StyledComponent;
+import guiTeacher.components.TextArea;
+import guiTeacher.components.TextField;
+import guiTeacher.interfaces.Visible;
+import guiTeacher.userInterfaces.FullFunctionScreen;
+
+
+public class CardScreen extends FullFunctionScreen{
+
+	private TextArea title;
+	private Button switchScreen;
+	
+	public CardScreen(int width, int height) {
+		super(width, height);
+		/*
+		addSequence("resources/.png", 150, 0, 0, 100, 90, 6);
+		Thread animation = new Thread(this);
+		animation.start();
+		update();
+		*/
+	}
+
+	@Override
+	public void initAllObjects(List<Visible> viewObjects) {
+		try {
+
+	    	   File fontFile = new File("resources//mellony_dry_brush.ttf");
+
+	    	   // File fontFile = new File("resources//DayRoman.ttf");
+
+	    	   Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+	    	   Font baseFont=font.deriveFont(16f);
+
+	    	   StyledComponent.setBaseFont(baseFont);
+
+	    	   } catch (Exception e) {
+
+	    	   e.printStackTrace();
+
+	    	   }
+		StyledComponent.setButtonOutline(true);
+		title = new TextArea(350, 40, 300, 30, "Happy Holidays!");
+		switchScreen = new Button(350, 480, 100, 40, "View More", new Action() {
+			
+
+			@Override
+			public void act() {
+				 CardGUI.card.setScreen(CardGUI.screen2);
+			}
+		});
+		
+		
+		viewObjects.add(title);
+		viewObjects.add(switchScreen);
+	}
+
+	
+}

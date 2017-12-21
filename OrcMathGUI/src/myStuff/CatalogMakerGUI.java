@@ -11,6 +11,7 @@ public class CatalogMakerGUI extends GUIApplication {
 
 	@Override
 	public void initScreen() {
+		
 		CatalogScreen s = new CatalogScreen(getWidth(), getHeight());
 		setScreen(s);
 	}
