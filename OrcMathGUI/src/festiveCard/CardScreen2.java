@@ -4,6 +4,7 @@ import java.util.List;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
+import guiTeacher.components.Graphic;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
 
@@ -18,6 +19,7 @@ public class CardScreen2 extends FullFunctionScreen {
 
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
+		viewObjects.add(new Graphic(0, 0, getWidth(),getHeight(),"resources/download.jpg"));
 		switchScreen = new Button(350, 480, 100, 40, "Go back", new Action() {
 			
 
@@ -27,6 +29,7 @@ public class CardScreen2 extends FullFunctionScreen {
 			}
 		});
 		viewObjects.add(switchScreen);
+		viewObjects.add(new Banner2(550));
 
 	}
 

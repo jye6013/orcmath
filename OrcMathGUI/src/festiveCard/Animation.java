@@ -1,9 +1,23 @@
 package festiveCard;
 
-public class Animation {
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+import guiTeacher.components.AnimatedComponent;
+import guiTeacher.components.Component;
+
+public class Animation extends AnimatedComponent {
 
 	public Animation() {
-		// TODO Auto-generated constructor stub
+		super(40, 40, 100, 83);
+		addSequence("resources/santarun.png", 150, 0, 0, 123, 210, 6);
+		Thread animation = new Thread(this);
+		animation.start();
+		update();
 	}
 
+	@Override
+	public void update(Graphics2D g) {
+		super.update(g);
+	}
 }
