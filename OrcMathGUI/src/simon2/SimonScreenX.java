@@ -119,5 +119,5 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 		// TODO Auto-generated method stub
 		
 	}
-
+//
 }

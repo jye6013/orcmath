@@ -3,7 +3,7 @@ package simon2;
 import guiTeacher.GUIApplication;
 
 public class SimonGameX extends GUIApplication{
-	
+	//
 	public static SimonScreenX simon;
 
 	public SimonGameX(int width, int height) {
