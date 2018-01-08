@@ -152,7 +152,7 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 				b.dim();
 				b = sequence.get(sequenceIndex).getButton();
 				b.highlight();
-				int sleepTime = (int) Math.exp(10000000 *(-1 * roundNumber));
+				int sleepTime = (int) Math.exp(1000000 *(-1 * roundNumber));
 				try {
 					Thread.sleep(sleepTime);
 				} catch (InterruptedException e) {
