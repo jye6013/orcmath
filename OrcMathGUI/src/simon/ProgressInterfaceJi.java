@@ -2,7 +2,7 @@ package simon;
 
 import guiTeacher.interfaces.Visible;
 
-public interface ProgressInterfaceX extends Visible{
+public interface ProgressInterfaceJi extends Visible{
 
 	void gameOver();
 	

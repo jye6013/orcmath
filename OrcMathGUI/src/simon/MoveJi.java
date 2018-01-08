@@ -1,9 +1,9 @@
 package simon;
 
-public class MoveX implements MoveInterfaceX{
+public class MoveJi implements MoveInterfaceJi{
 
 	@Override
-	public ButtonInterfaceX getButton() {
+	public ButtonInterfaceJi getButton() {
 		// TODO Auto-generated method stub
 		return null;
 	}
