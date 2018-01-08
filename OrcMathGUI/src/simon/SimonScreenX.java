@@ -105,6 +105,17 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 					}
 				}
 			});
+			
+			if(b == sequence.get(sequenceIndex).getButton()) {
+				sequenceIndex++;
+			}else {
+				progress.gameOver();
+			}
+			
+			if(sequenceIndex == sequence.size()) {
+				Thread nextRound = new Thread(SimonScreenX.this); 
+				nextRound.start();
+			}
 		}
 	}
 
@@ -115,8 +126,51 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		label.setText("");
+	    nextRound();
 	}
 	//
+
+	private void nextRound() {
+		acceptingInput = false;
+		roundNumber++;
+		randomMove();
+		progress.setRound(roundNumber);
+		progress.setSequenceSize(sequenceIndex);
+		changeText("Simon's turn");
+		label.setText("");
+		playSequence();
+		changeText("Your turn");
+		acceptingInput = true;
+		sequenceIndex = 0;
+	}
+
+	private void playSequence() {
+		ButtonInterfaceX b = getAButton();
+		for(MoveInterfaceX a: sequence){ 
+			if(a != null) {
+				b.dim();
+				b = sequence.get(sequenceIndex).getButton();
+				b.highlight();
+				int sleepTime = (int) Math.exp(-1 * roundNumber);
+				try {
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		b.dim();
+	}
+
+	private void changeText(String str) {
+		label.setText(str);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
