@@ -9,7 +9,7 @@ public interface ButtonInterfaceJi extends Clickable{
 	
 	void setAction(Action a);
 
-	void setColor(Color darkgray);
+	void setColor(Color color);
 
 	void highlight();
 

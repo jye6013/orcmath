@@ -11,8 +11,8 @@ import guiTeacher.components.Button;
 
 public class ButtonJi extends Button implements ButtonInterfaceJi{
 
-	public ButtonJi(int x, int y, int w, int h, String text, Color color, Action action) {
-		super(x, y, w, h, text, color, action);
+	public ButtonJi(int x, int y, int w, int h, String text, Action action) {
+		super(x, y, w, h, "", null);
 		// TODO Auto-generated constructor stub
 	}
 
