@@ -9,14 +9,14 @@ import guiTeacher.components.TextArea;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
-import simon.ButtonInterfaceX;
+import simon.ButtonInterfaceJi;
 
-public class SimonScreenX extends ClickableScreen implements Runnable{
+public class SimonScreenJi extends ClickableScreen implements Runnable{
 
 	private TextLabel label;
-	private ButtonInterfaceX[] buttons;
-	private ProgressInterfaceX progress;
-	ArrayList<MoveInterfaceX> sequence = new ArrayList<MoveInterfaceX>();
+	private ButtonInterfaceJi[] buttons;
+	private ProgressInterfaceJi progress;
+	ArrayList<MoveInterfaceJi> sequence = new ArrayList<MoveInterfaceJi>();
 
 	private int roundNumber;
 	private boolean acceptingInput;
@@ -25,7 +25,7 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 	private Color[] color;
 	//private static int NUM_BUTTONS;
 
-	public SimonScreenX(int width, int height) {
+	public SimonScreenJi(int width, int height) {
 		super(width, height);
 		Thread app = new Thread(this);
 		app.start();
@@ -34,12 +34,12 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons();
-		for(ButtonInterfaceX b: buttons){ 
+		for(ButtonInterfaceJi b: buttons){ 
 			viewObjects.add(b); 
 		}
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
-		sequence = new ArrayList<MoveInterfaceX>();
+		sequence = new ArrayList<MoveInterfaceJi>();
 		//add 2 moves to start
 		lastSelectedButton = -1;
 		sequence.add(randomMove());
@@ -50,7 +50,7 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 
 	}
 
-	private simon.MoveInterfaceX randomMove() {
+	private simon.MoveInterfaceJi randomMove() {
 		int bIndex = (int)(Math.random()*buttons.length);
 		while(bIndex == lastSelectedButton){
 			bIndex = (int)(Math.random()*buttons.length);
@@ -58,7 +58,7 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 		return getMove(bIndex);
 	}
 
-	private MoveInterfaceX getMove(int bIndex) {
+	private MoveInterfaceJi getMove(int bIndex) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -66,21 +66,21 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
 	 */
-	private ProgressInterfaceX getProgress() {
+	private ProgressInterfaceJi getProgress() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private void addButtons() {
 		int numberOfButtons = 3;
-		buttons = new ButtonInterfaceX[numberOfButtons];
+		buttons = new ButtonInterfaceJi[numberOfButtons];
 		color = new Color[numberOfButtons];
 		color[0] = Color.red;
 		color[1] = Color.green;
 		color[2] = Color.blue;
 
 		for(int i = 0; i < numberOfButtons; i++) {
-			final ButtonInterfaceX b = getAButton();
+			final ButtonInterfaceJi b = getAButton();
 			buttons[i] = b;
 			b.setColor(Color.darkGray);
 			b.setX(0);
@@ -113,13 +113,13 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 			}
 			
 			if(sequenceIndex == sequence.size()) {
-				Thread nextRound = new Thread(SimonScreenX.this); 
+				Thread nextRound = new Thread(SimonScreenJi.this); 
 				nextRound.start();
 			}
 		}
 	}
 
-	private ButtonInterfaceX getAButton() {
+	private ButtonInterfaceJi getAButton() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -146,8 +146,8 @@ public class SimonScreenX extends ClickableScreen implements Runnable{
 	}
 
 	private void playSequence() {
-		ButtonInterfaceX b = getAButton();
-		for(MoveInterfaceX a: sequence){ 
+		ButtonInterfaceJi b = getAButton();
+		for(MoveInterfaceJi a: sequence){ 
 			if(a != null) {
 				b.dim();
 				b = sequence.get(sequenceIndex).getButton();

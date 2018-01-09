@@ -2,11 +2,11 @@ package simon;
 
 import guiTeacher.GUIApplication;
 
-public class SimonGameX extends GUIApplication{
+public class SimonGameJi extends GUIApplication{
 	//
-	public static SimonScreenX simon;
+	public static SimonScreenJi simon;
 
-	public SimonGameX(int width, int height) {
+	public SimonGameJi(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
 	}
@@ -18,7 +18,7 @@ public class SimonGameX extends GUIApplication{
 	}
 	
 	public static void main(String[] args) {
-		simon = new SimonScreenX(800, 500);
+		simon = new SimonScreenJi(800, 500);
 		Thread runner = new Thread(simon);
 		runner.start();
 	}
