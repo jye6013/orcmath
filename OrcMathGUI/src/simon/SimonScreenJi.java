@@ -45,8 +45,11 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
+		//TextArea txt = new TextArea(50, 50, 100, 50, "Round: " + roundNumber +
+		//		" Sequence length: " + sequenceIndex);
 		viewObjects.add(progress);
 		viewObjects.add(label);
+		//viewObjects.add(txt);
 
 	}
 
@@ -73,6 +76,7 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 
 	private void addButtons() {
 		int numberOfButtons = 3;
+		int x = 30;
 		buttons = new ButtonInterfaceJi[numberOfButtons];
 		color = new Color[numberOfButtons];
 		color[0] = Color.red;
@@ -82,9 +86,10 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 		for(int i = 0; i < numberOfButtons; i++) {
 			final ButtonInterfaceJi b = getAButton();
 			buttons[i] = b;
-			b.setColor(Color.darkGray);
-			b.setX(0);
-			b.setY(0);
+			b.setColor(color[i]);
+			b.setX(x);
+			b.setY(30);
+			x = x + 30;
 			b.setAction(new Action(){
 
 				public void act(){
@@ -120,8 +125,8 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 	}
 
 	private ButtonInterfaceJi getAButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ButtonJi(50, 50, 50, 50, "", null);
+		
 	}
 
 	@Override

@@ -5,7 +5,7 @@ public class MoveJi implements MoveInterfaceJi{
 	@Override
 	public ButtonInterfaceJi getButton() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ButtonJi(50, 50, 50, 50, "", null);
 	}
 
 }
