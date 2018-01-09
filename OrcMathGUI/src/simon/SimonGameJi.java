@@ -18,7 +18,6 @@ public class SimonGameJi extends GUIApplication{
 	}
 	
 	public static void main(String[] args) {
-		simon = new SimonScreenJi(800, 500);
 		Thread runner = new Thread(simon);
 		runner.start();
 	}

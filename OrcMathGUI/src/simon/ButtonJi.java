@@ -13,30 +13,29 @@ public class ButtonJi extends Button implements ButtonInterfaceJi{
 
 	public ButtonJi(int x, int y, int w, int h, String text, Action action) {
 		super(x, y, w, h, "", null);
-		// TODO Auto-generated constructor stub
+		update();
 	}
 
 	@Override
 	public void highlight() {
-		// TODO Auto-generated method stub
+		setBackground(Color.yellow);
 		
 	}
 
 	@Override
 	public void dim() {
-		// TODO Auto-generated method stub
+		setBackground(Color.darkGray);
 		
 	}
 	
 	public void drawButton(Graphics2D g, boolean hover) {
-		
+		g.drawOval(50, 50, 50, 50);
 	}
 
 
 	@Override
 	public void setColor(Color color) {
-		// TODO Auto-generated method stub
-		
+		setBackground(color);
 	}
 	
 }

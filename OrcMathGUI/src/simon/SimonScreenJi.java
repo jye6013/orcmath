@@ -45,10 +45,10 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 		sequence.add(randomMove());
 		sequence.add(randomMove());
 		roundNumber = 0;
-		//TextArea txt = new TextArea(50, 50, 100, 50, "Round: " + roundNumber +
-		//		" Sequence length: " + sequenceIndex);
 		viewObjects.add(progress);
 		viewObjects.add(label);
+		//TextArea txt = new TextArea(50, 50, 100, 50, "Round: " + roundNumber +
+				//		" Sequence length: " + sequenceIndex);
 		//viewObjects.add(txt);
 
 	}
@@ -107,20 +107,22 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 								b.dim();
 							}});
 						blink.start();
+						
+						if(b == sequence.get(sequenceIndex).getButton()) {
+							sequenceIndex++;
+						}else {
+							progress.gameOver();
+						}
+						
+						if(sequenceIndex == sequence.size()) {
+							Thread nextRound = new Thread(SimonScreenJi.this); 
+							nextRound.start();
+						}
 					}
 				}
 			});
+			//
 			
-			if(b == sequence.get(sequenceIndex).getButton()) {
-				sequenceIndex++;
-			}else {
-				progress.gameOver();
-			}
-			
-			if(sequenceIndex == sequence.size()) {
-				Thread nextRound = new Thread(SimonScreenJi.this); 
-				nextRound.start();
-			}
 		}
 	}
 
@@ -139,7 +141,7 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 	private void nextRound() {
 		acceptingInput = false;
 		roundNumber++;
-		randomMove();
+		sequence.add(randomMove());
 		progress.setRound(roundNumber);
 		progress.setSequenceSize(sequenceIndex);
 		changeText("Simon's turn");
@@ -152,18 +154,23 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 
 	private void playSequence() {
 		ButtonInterfaceJi b = getAButton();
-		for(MoveInterfaceJi a: sequence){ 
-			if(a != null) {
+		for(int i = 0; i < sequence.size(); i++) {
+			if(b != null) {
 				b.dim();
-				b = sequence.get(sequenceIndex).getButton();
+				b = sequence.get(i).getButton();
 				b.highlight();
 				int sleepTime = (int) Math.exp(1000000 *(-1 * roundNumber));
-				try {
-					Thread.sleep(sleepTime);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Thread blink = new Thread(new Runnable(){
+
+					public void run(){
+						try {
+							Thread.sleep(sleepTime);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}});
+				blink.start();
 			}
 		}
 		b.dim();
