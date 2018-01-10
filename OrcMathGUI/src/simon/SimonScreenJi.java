@@ -62,16 +62,15 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 	}
 
 	private MoveInterfaceJi getMove(int bIndex) {
-		// TODO Auto-generated method stub
-		return null;
+		//return null;
+		return new MoveAchilles();
 	}
 
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
 	 */
 	private ProgressInterfaceJi getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressAchilles();
 	}
 
 	private void addButtons() {
@@ -89,7 +88,7 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 			b.setColor(color[i]);
 			b.setX(x);
 			b.setY(30);
-			x = x + 30;
+			x = x + 100;
 			b.setAction(new Action(){
 
 				public void act(){
@@ -125,9 +124,9 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 			
 		}
 	}
-
+	
 	private ButtonInterfaceJi getAButton() {
-		return new ButtonJi(50, 50, 50, 50, "", null);
+		return new ButtonAchilles(50, 50, 50, 50, "", null);
 		
 	}
 

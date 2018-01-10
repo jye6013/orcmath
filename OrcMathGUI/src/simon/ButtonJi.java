@@ -19,17 +19,18 @@ public class ButtonJi extends Button implements ButtonInterfaceJi{
 	@Override
 	public void highlight() {
 		setBackground(Color.yellow);
-		
+		//update();
 	}
 
 	@Override
 	public void dim() {
 		setBackground(Color.darkGray);
-		
+		//update();
 	}
 	
 	public void drawButton(Graphics2D g, boolean hover) {
 		g.drawOval(50, 50, 50, 50);
+		//update();
 	}
 
 

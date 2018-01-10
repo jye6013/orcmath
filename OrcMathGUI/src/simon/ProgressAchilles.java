@@ -1,8 +1,13 @@
 package simon;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import guiTeacher.components.Component;
 
 public class ProgressAchilles implements ProgressInterfaceJi {
+
+	private boolean isGameOver = false;
 
 	public ProgressAchilles() {
 		// TODO Auto-generated constructor stub
@@ -12,6 +17,32 @@ public class ProgressAchilles implements ProgressInterfaceJi {
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void update(Graphics2D g) {
+		if(isGameOver ) {
+			g.setColor(Color.red);
+		}else {
+			g.setColor(Color.green);
+		}
+	}
+
+	@Override
+	public void hoverAction() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void gameOver() {
+		isGameOver = true;
+		update();
 	}
 
 	@Override
@@ -29,13 +60,13 @@ public class ProgressAchilles implements ProgressInterfaceJi {
 	@Override
 	public void setX(int x) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setY(int y) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -45,15 +76,9 @@ public class ProgressAchilles implements ProgressInterfaceJi {
 	}
 
 	@Override
-	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -65,7 +90,7 @@ public class ProgressAchilles implements ProgressInterfaceJi {
 	@Override
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -83,37 +108,25 @@ public class ProgressAchilles implements ProgressInterfaceJi {
 	@Override
 	public void setAlpha(float f) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void unhoverAction() {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void hoverAction() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void gameOver() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setRound(int num) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setSequenceSize(int num) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }
