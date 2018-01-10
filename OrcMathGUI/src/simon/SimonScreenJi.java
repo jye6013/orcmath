@@ -88,6 +88,7 @@ public class SimonScreenJi extends ClickableScreen implements Runnable{
 			b.setColor(color[i]);
 			b.setX(x);
 			b.setY(30);
+			b.update();
 			x = x + 100;
 			b.setAction(new Action(){
 
