@@ -15,7 +15,7 @@ public class Game extends GUIApplication {
 
 	@Override 
 	public void initScreen() {
-		Screen screen = new Screen(getWidth(), getHeight());
+		TestingGame screen = new TestingGame(getWidth(), getHeight());
 		setScreen(screen);
 	}
 
